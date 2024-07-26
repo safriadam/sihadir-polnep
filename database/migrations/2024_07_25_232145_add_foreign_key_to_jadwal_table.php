@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jadwals', function (Blueprint $table) {
-            $table->foreign('id_mk')->references('id_mk')->on('matkuls')->onDelete('cascade');
-            $table->foreign('id_kls')->references('id_kls')->on('kelas')->onDelete('cascade');
+            // $table->foreign('id_mk')->references('id_mk')->on('matkuls')->onDelete('cascade');
+            // $table->foreign('id_kls')->references('id_kls')->on('kelas')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    
+
     public function down(): void
     {
         Schema::table('jadwals', function (Blueprint $table) {

@@ -24,9 +24,9 @@ return new class extends Migration
             $table->enum('status', ['A', 'I', 'S']);
             $table->timestamps();
             
-            $table->foreign('id_jdwl')->references('id_jdwl')->on('jadwals')->onDelete('cascade');
-            $table->foreign('id_mhs')->references('id_mhs')->on('mahasiswas')->onDelete('cascade');
-            $table->foreign('id_tahun_ajar')->references('id_tahun_ajar')->on('logs')->onDelete('cascade');
+            // $table->foreign('id_jdwl')->references('id_jdwl')->on('jadwals')->onDelete('cascade');
+            // $table->foreign('id_mhs')->references('id_mhs')->on('mahasiswas')->onDelete('cascade');
+            // $table->foreign('id_tahun_ajar')->references('id_tahun_ajar')->on('logs')->onDelete('cascade');
         });
     }
 
