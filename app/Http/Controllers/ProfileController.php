@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\berita_acara;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,9 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function test() {
+        // dd(berita_acara::first()->jadwal->hari);
+    }
     /**
      * Display the user's profile form.
      */

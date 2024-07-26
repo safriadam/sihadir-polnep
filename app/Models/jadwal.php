@@ -13,7 +13,7 @@ class jadwal extends Model
     {
         return $this->belongsTo(jadwal::class, 'id_jdwl');
 
-        return $this->hasMany(kelas::class, 'id_kls');
-        return $this->hasMany(matkul::class, 'id_mk');
+        // return $this->hasMany(kelas::class, 'id_kls');
+        // return $this->hasMany(matkul::class, 'id_mk');
     }
 }
