@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('logs', function (Blueprint $table) {
-            // $table->foreign('id_jdwl')->references('id_jdwl')->on('jadwals')->onDelete('cascade');
-            // $table->foreign('id_dosen')->references('id_dosen')->on('dosens')->onDelete('cascade');
+        Schema::create('users', function (Blueprint $table) {
+            $table->integer('ID');
+            $table->varchar('name');
+            $table->varchar('username');
+            $table->varchar('password');
+            $table->integer('role');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('logs', function (Blueprint $table) {
-            
-        });
+        Schema::dropIfExists('users');
     }
 };
