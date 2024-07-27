@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('revisi_presensi', function (Blueprint $table) {
-            $table->bigInterger('id');
+            $table->bigInteger('id');
             $table->bigInteger('id_revisi_presensi');
             $table->integer('tgl_revisi');
-            $table->enum('status',['A','I','S']);
+            $table->enum('status',['diajukan','menunggu_verif','disetujui']);
             $table->varchar('bukti_revisi');
             $table->date('created_at');
             $table->timestamps();
