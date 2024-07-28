@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_cicil_kompen', function (Blueprint $table) {
+        Schema::create('cicil_kompen', function (Blueprint $table) {
             $table->integer('id_cicil');
             $table->integer('id_kompen');
             $table->integer('id_tahun_ajar');

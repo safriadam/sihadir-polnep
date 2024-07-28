@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_admin', function (Blueprint $table) {
-            $table->biginteger('id_staff');
-            $table->varchar('nama');
-            $table->char('no_induk');
-            $table->varchar('pwd');
-            $table->varchar('no_hp');
+        Schema::create('ket_mahasiswa', function (Blueprint $table) {
+            $table->biginteger('id_presensi');
+            $table->boolean('status_confirm');
+            $table->string('surat_bukti');
+            $table->string('deskripsi');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_admin');
+        Schema::dropIfExists('ket_mhs');
     }
 };
