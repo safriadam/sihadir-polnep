@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->integer('ID');
-            $table->varchar('name');
-            $table->varchar('username');
-            $table->varchar('password');
+            $table->string('name');
+            $table->string('username');
+            $table->string('password');
             $table->integer('role');
             $table->timestamps();
         });

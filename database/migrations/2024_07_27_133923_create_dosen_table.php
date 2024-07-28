@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('dosen', function (Blueprint $table) {
             $table->integer('user_id');
             $table->bigInteger('id_dosen');
-            $table->varchar('nidn');
-            $table->varchar('nip');
-            $table->varchar('nama');
+            $table->string('nidn');
+            $table->string('nip');
+            $table->string('nama');
             $table->boolean('is_kaprodi');
-            $table->varchar('no_hp');
-            $table->varchar('pwd');
-            $table->varchar('foto');
+            $table->string('no_hp');
+            $table->string('pwd');
+            $table->string('foto');
             $table->timestamps();
         });
     }

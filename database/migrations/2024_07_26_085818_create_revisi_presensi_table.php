@@ -16,8 +16,8 @@ return new class extends Migration
             $table->bigInteger('id_revisi_presensi');
             $table->integer('tgl_revisi');
             $table->enum('status',['diajukan','menunggu_verif','disetujui']);
-            $table->varchar('bukti_revisi');
-            $table->date('created_at');
+            $table->string('bukti_revisi');
+
             $table->timestamps();
         });
     }
