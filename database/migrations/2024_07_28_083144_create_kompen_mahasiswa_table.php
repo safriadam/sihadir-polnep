@@ -13,7 +13,7 @@ class CreateTbKompenMhsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_kompen_mhs', function (Blueprint $table) {
+        Schema::create('kompen_mahasiswa', function (Blueprint $table) {
             $table->id('id_kompen');
             $table->unsignedBigInteger('id_mk');
             $table->unsignedBigInteger('id_tahun_ajar');

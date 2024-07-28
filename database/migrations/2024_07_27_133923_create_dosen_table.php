@@ -12,14 +12,25 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('dosen', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->bigInteger('id_dosen');
-            $table->string('nidn');
-            $table->string('nip');
+            // $table->integer('user_id');
+            // $table->bigInteger('id_dosen');
+            // $table->string('nidn');
+            // $table->string('nip');
+            // $table->string('nama');
+            // $table->boolean('is_kaprodi');
+            // $table->string('no_hp');
+            // $table->string('pwd');
+            // $table->string('foto');
+            // $table->timestamps();
+
+            // alternate table
+            $table->unsignedBigInteger('id_dosen')->autoIncrement();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('nip')->unique();
+            $table->string('nidn')->unique();
             $table->string('nama');
             $table->boolean('is_kaprodi');
             $table->string('no_hp');
-            $table->string('pwd');
             $table->string('foto');
             $table->timestamps();
         });

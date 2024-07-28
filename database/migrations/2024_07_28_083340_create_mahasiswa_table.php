@@ -13,18 +13,18 @@ class CreateTbMhsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_mhs', function (Blueprint $table) {
-            $table->id('id_mhs');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('id_kls');
-            $table->unsignedBigInteger('id_dosen_PA');
-            $table->string('nim');
+        Schema::create('mahasiswa', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_mhs')->autoIncrement();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->Integer('id_kls');
+            $table->foreignId('id_dosen_PA')->references('id_dosen')->on('dosen')->onDelete('cascade');
+            $table->string('nim')->unique();
             $table->string('nama');
             $table->string('nama_ortu');
             $table->string('no_hp_ortu');
             $table->string('foto');
             $table->string('no_hp');
-            $table->enum('ket_status', ['-', 'sp1', 'sp2', 'sp3', 'do']);
+            $table->enum('ket_status', ['-', 'sp1', 'sp2', 'sp3', 'do',])->default('-');
             $table->timestamps();
         });
     }

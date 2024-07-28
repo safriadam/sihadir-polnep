@@ -13,7 +13,7 @@ class CreateTbMkTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_mk', function (Blueprint $table) {
+        Schema::create('matkul', function (Blueprint $table) {
             $table->id('id_mk');
             $table->string('kd_mk');
             $table->string('nama');

@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('revisi_presensi', function (Blueprint $table) {
-            $table->bigInteger('id');
-            $table->bigInteger('id_revisi_presensi');
+            $table->bigInteger('id_revisi_presensi')->autoIncrement();
+            $table->foreignId('id_presensi')->references('id_presensi')->on('presensi')->onDelete('cascade');
             $table->integer('tgl_revisi');
-            $table->enum('status',['diajukan','menunggu_verif','disetujui']);
+            $table->enum('status',['diajukan','menunggu_verif','disetujui'])->nullable();
             $table->string('bukti_revisi');
-
-            $table->timestamps();
+            $table->date('created_at');
         });
     }
 
