@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ket_mahasiswa', function (Blueprint $table) {
-            $table->biginteger('id_presensi');
+            $table->unsignedBigInteger('id_presensi');
             $table->boolean('status_confirm');
             $table->string('surat_bukti');
             $table->string('deskripsi');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ket_mhs');
+        Schema::dropIfExists('ket_mahasiswa');
     }
 };

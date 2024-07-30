@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admin', function (Blueprint $table) {
-            $table->biginteger('id_staff');
+            $table->unsignedBigInteger('id_staff');
+            $table->unsignedBigInteger('user_id');
             $table->string('nama');
-            $table->char('no_induk');
+            $table->string('no_induk');
             $table->string('pwd');
             $table->string('no_hp');
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_admin');
+        Schema::dropIfExists('admin');
     }
 };

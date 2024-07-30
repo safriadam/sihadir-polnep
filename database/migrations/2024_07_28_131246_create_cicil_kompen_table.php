@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cicil_kompen', function (Blueprint $table) {
-            $table->integer('id_cicil');
-            $table->integer('id_kompen');
-            $table->integer('id_tahun_ajar');
-            $table->biginteger('id_mhs');
+            $table->unsignedInteger('id_cicil');
+            $table->unsignedBigInteger('id_kompen');
+            $table->unsignedBigInteger('id_tahun_ajar');
+            $table->unsignedBigInteger('id_mahasiswa');
             $table->date('tgl_cicil');
             $table->integer('jlh_jam_konversi');
             $table->string('jenis_kompen');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_cicil_kompen');
+        Schema::dropIfExists('cicil_kompen');
     }
 };

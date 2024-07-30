@@ -25,14 +25,13 @@ return new class extends Migration
 
             // alternate table
             $table->unsignedBigInteger('id_dosen')->autoIncrement();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('nip')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->string('nidn')->unique();
+            $table->string('nip')->unique();
             $table->string('nama');
             $table->boolean('is_kaprodi');
             $table->string('no_hp');
             $table->string('foto');
-            $table->timestamps();
         });
     }
 

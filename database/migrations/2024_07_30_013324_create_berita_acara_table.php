@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logs', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_tahun_ajar')->autoIncrement();
+        Schema::create('berita_acara', function (Blueprint $table) {
             $table->unsignedBigInteger('id_jadwal');
             $table->unsignedBigInteger('id_dosen');
-            $table->date('tahun_awal');
-            $table->date('tahun_akhir');
+            $table->date('tanggal');
+            $table->string('pkk_bhsn');
+            $table->string('spkk_bhsn');
+            $table->string('media');
+            $table->time('jam_ajar');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('berita_acara');
     }
 };

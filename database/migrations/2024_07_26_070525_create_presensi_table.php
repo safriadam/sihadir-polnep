@@ -30,13 +30,14 @@ return new class extends Migration
         
             // alternate columns
             $table->unsignedBigInteger('id_presensi')->autoIncrement();
-            $table->foreignId('id_mhs')->references('id_mhs')->on('mahasiswas')->onDelete('cascade');
-            $table->unsignedBigInteger('id_tahun_ajar');
-            $table->date('tgl');
+            $table->unsignedBigInteger('id_mahasiswa');
+            $table->unsignedInteger('id_tahun_ajar');
+            $table->unsignedBigInteger('id_jadwal');
+            $table->date('tanggal');
             $table->time('start_kls');
             $table->time('finish_kls')->nullable();
-            $table->char('kehadiran');
-            $table->char('ketidakhadiran');
+            $table->integer('kehadiran');
+            $table->integer('ketidakhadiran');
             $table->enum('status', ['A','I','S'])->nullable();
             $table->timestamps();
         });

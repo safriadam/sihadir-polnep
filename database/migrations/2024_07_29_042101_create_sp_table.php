@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sp', function (Blueprint $table) {
-            $table->integer('id_sp');
-            $table->string('id_mhs');
-            $table->bigInteger('id_dosen_pa');
+            $table->unsignedBigInteger('id_sp');
+            $table->unsignedBigInteger('id_mahasiswa');
+            $table->unsignedBigInteger('id_dosen_PA');
             $table->enum('jenis_sp', ['1', '2', '3']);
             $table->string('lamp_sp');
             $table->string('lamp_surat_pernyataan');
             $table->string('lamp_pgl_ortu');
             $table->string('lamp_ba_ortu');
             $table->enum('status', ['1', '2']);
-            $table->timestamps();
         });
     }
 
