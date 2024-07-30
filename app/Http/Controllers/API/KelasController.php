@@ -50,7 +50,7 @@ class KelasController extends Controller
                     'dosens.nama',
                     'matkuls.nama as Mata Kuliah',
                     DB::raw(
-                        'DATE_FORMAT(CURDATE(), "%e %M %Y") AS Tanggal 
+                        'DATE_FORMAT(CURDATE(), "%e %M %Y") AS Tanggal
                         ,CONCAT(TIME_FORMAT(jadwals.start, "%H.%i"), " - ",TIME_FORMAT(jadwals.finish   , "%H.%i")) AS Waktu'
                     ),
                     'kelas.smt',
@@ -119,7 +119,7 @@ class KelasController extends Controller
                 'dosens.nama',
                 'matkuls.nama as Mata Kuliah',
                 DB::raw(
-                    'DATE_FORMAT(CURDATE(), "%e %M %Y") AS Tanggal 
+                    'DATE_FORMAT(CURDATE(), "%e %M %Y") AS Tanggal
                         ,CONCAT(TIME_FORMAT(jadwals.start, "%H.%i"), " - ",TIME_FORMAT(jadwals.finish   , "%H.%i")) AS Waktu'
                 ),
                 'kelas.smt',
@@ -291,7 +291,7 @@ class KelasController extends Controller
         //get id dosen
         $id_dosen = DB::table('dosens')->where('dosens.nidn', '=', $nidn)->value('id_dosen');
         //get jumlah_jam_ajar
-        // if semester ganjil 
+        // if semester ganjil
         $jam_ajar = DB::table('presensis')
             ->selectRaw("
             CASE
@@ -326,15 +326,15 @@ class KelasController extends Controller
             //             END
             //         ELSE finish_kls
             //         END AS jam_ajar
-            // FROM 
+            // FROM
             // tb_presensi,log,tb_jdwl
-            // WHERE 
+            // WHERE
             // tb_presensi.id_tahun_ajar=log.id_tahun_ajar
-            // AND 
-            // tb_jdwl.id_jdwl=log.id_jdwl 
-            // AND 
-            // tb_jdwl.id_jdwl=1 
-            // AND log.id_dosen=23 
+            // AND
+            // tb_jdwl.id_jdwl=log.id_jdwl
+            // AND
+            // tb_jdwl.id_jdwl=1
+            // AND log.id_dosen=23
             // AND tgl = CURDATE();
             ->join('logs', 'presensis.id_tahun_ajar', '=', 'logs.id_tahun_ajar')
             ->join('jadwals', 'jadwals.id_jdwl', '=', 'logs.id_jdwl')
@@ -394,79 +394,7 @@ class KelasController extends Controller
             ]
         ], 200);
     }
-    public function checkTokenValid(Request $request)
-    {
-        $nomor_induk = $request->query('nomor_induk');
-        $Jadwal = Jadwal::where("id_jdwl", $request->id_jdwl)->first();
-        $inputToken = Jadwal::where("token", $request->token)->first();
-        if ($Jadwal !== null) {
-            if ($inputToken !== null) {
-                try {
-                    if ($Jadwal->token == $inputToken->token) {
-                        if (now()->lt($inputToken->expires_at)) {
-                            // Update Presensi records for the given id_mhs
-                            $presensiToUpdate = DB::table('presensis')
-                                ->join('mahasiswas', 'presensis.id_mhs', '=', 'mahasiswas.id_mhs')
-                                ->join('kelas', 'mahasiswas.id_kls', '=', 'kelas.id_kls')
-                                ->join('jadwals', 'kelas.id_kls', '=', 'jadwals.id_kls')
-                                ->where('mahasiswas.nim', '=', $nomor_induk)
-                                ->where('jadwals.id_jdwl', '=', $Jadwal->id_jdwl)
-                                ->where('presensis.tgl', '=', date('Y-m-d'))
-                                ->select('mahasiswas.id_mhs', 'mahasiswas.nama', 'jadwals.jumlah_jam')->get();
-                            foreach ($presensiToUpdate as $key => $value) {
-                                DB::table('presensis')
-                                    ->join('mahasiswas', 'presensis.id_mhs', '=', 'mahasiswas.id_mhs')
-                                    ->join('kelas', 'mahasiswas.id_kls', '=', 'kelas.id_kls')
-                                    ->join('jadwals', 'kelas.id_kls', '=', 'jadwals.id_kls')
-                                    ->where('mahasiswas.nim', '=', $nomor_induk)
-                                    ->where('jadwals.id_jdwl', '=', $Jadwal->id_jdwl)
-                                    ->where('presensis.tgl', '=', date('Y-m-d'))
-                                    ->update([
-                                        'kehadiran' => $value->jumlah_jam,
-                                        'ketidakhadiran' => 0,
-                                        'status' => null
-                                    ]);
-                            }
 
-                            return response()->json([
-                                "status" => "202",
-                                "token input" => $inputToken->token,
-                                "message" => "Kehadiran berhasil disimpan",
-                                "mahasiswas" => $presensiToUpdate
-                            ], 202);
-                        } else {
-                            return response()->json([
-                                "status" => "400",
-                                "token input" => $inputToken->token,
-                                "message" => "Token expired"
-                            ], 408);
-                        }
-                    } else {
-                        return response()->json([
-                            "status" => "400",
-                            "token input" => $inputToken->token,
-                            "message" => "Token invalid, Silahkan hubungi dosen atau staff"
-                        ], 408);
-                    }
-                } catch (\Throwable $th) {
-                    return response()->json([
-                        "status" => "500",
-                        "message" => "Error: " . $th->getMessage(),
-                    ], 500);
-                }
-            } else {
-                return response()->json([
-                    "status" => "400",
-                    "message" => "Input token not found or invalid",
-                ], 400);
-            }
-        } else {
-            return response()->json([
-                "status" => "404",
-                "message" => "Jadwal not found",
-            ], 404);
-        }
-    }
     public function updateTablePresensi()
     {
     }
