@@ -91,6 +91,8 @@ class RegisterController extends Controller
                 'id_kls' => $request->id_kls,
                 'nim' => $request->nomor_induk,
                 'nama' => $request->name,
+                'nama_ortu' => $request->nama_ortu,
+                'no_hp_ortu' => $request->no_hp_ortu,
                 'dosen_pa' => $request->dosen_pa,
                 'foto' => $request->foto,
                 'no_hp' => $request->no_hp,
@@ -103,7 +105,7 @@ class RegisterController extends Controller
                 'mahasiswa' => $mahasiswa,
             ], 201);
         }
-        //return JSON process insert failed 
+        //return JSON process insert failed
         return response()->json([
             'status' => '409',
             'success' => false,
