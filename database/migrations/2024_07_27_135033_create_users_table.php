@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-
-            // alternate columns
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('name');
             $table->string('username');
             $table->string('password');
             $table->integer('role');
-            $table->date('created_at');
+            $table->date('created_at')->nullable();
         });
     }
 

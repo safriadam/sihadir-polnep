@@ -1,43 +1,5 @@
 <?php
 
-// use Illuminate\Database\Migrations\Migration;
-// use Illuminate\Database\Schema\Blueprint;
-// use Illuminate\Support\Facades\Schema;
-
-// class CreateTbKompenMhsTable extends Migration
-// {
-    /**
-     * Run the migrations.
-     *
-    //  * @return void
-     */
-    // public function up()
-    // {
-    //     Schema::create('kompen_mahasiswa', function (Blueprint $table) {
-    //         $table->unsignedBigInteger('id_kompen')->autoIncrement();
-    //         $table->unsignedBigInteger('id_matkul');
-    //         $table->unsignedBigInteger('id_tahun_ajar');
-    //         $table->unsignedBigInteger('id_mahasiswa');
-    //         $table->integer('jumlah_kompen');
-    //         $table->string('keterangan');
-    //         $table->date('tgl_alpha');
-
-    //     });
-    // }
-
-    /**
-     * Reverse the migrations.
-     *
-    //  * @return void
-     */
-//     public function down()
-//     {
-//         Schema::dropIfExists('tb_kompen_mhs');
-//     }
-// }
-
-
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
