@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('tanggal_revisi');
             $table->enum('status',['diajukan','menunggu_verif','disetujui'])->nullable();
             $table->string('bukti_revisi');
-            $table->date('created_at');
+            $table->date('created_at')->nullable();
             $table->string('revisi');
         });
     }

@@ -52,7 +52,7 @@ class Presensi extends Model
 
     public function logs()
     {
-        return $this->belongsTo(Log::class, 'id_tahun_ajar' ,'id_tahun_ajar');
+        return $this->belongsTo(Logs::class, 'id_tahun_ajar' ,'id_tahun_ajar');
     }
 
     public function jadwal()
