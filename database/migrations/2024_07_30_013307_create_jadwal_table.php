@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ruang');
             $table->string('hari');
             $table->time('start');
+            $table->time('finish');
             $table->time('jumlah_jam');
             $table->string('token');
         });
