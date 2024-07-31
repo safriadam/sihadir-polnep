@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 // hubungkan model model yang diperlukan
 use app\Models\Dosen;
 use app\Models\Mahasiswa;
+use app\Models\Admin;
 
 class User extends Model
 {
@@ -43,5 +44,10 @@ class User extends Model
     public function mahasiswa()
     {
         return $this->hasOne(Mahasiswa::class, 'user_id', 'id');
+    }
+
+    public function admin()
+    {
+        return $this ->hasOne(Admin::class, 'user_id', 'id');
     }
 }
