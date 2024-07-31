@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Presensi;
 
-class revisi_presensi extends Model
+class Revisi_presensi extends Model
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class revisi_presensi extends Model
     public $incrementing = true;
 
     protected $keyType = 'int';
-    
+
     protected $fillable = [
         'id_presensi',
         'tanggal_revisi',
@@ -27,9 +27,9 @@ class revisi_presensi extends Model
         'created_at',
         'revisi',
     ];
-    // menentukan relasi tabel 
+    // menentukan relasi tabel
     public function presensi ()
     {
-        return $this->belongsTo(Revisi_presensi::class, 'id_presensi', 'id');
+        return $this->belongsTo(Presensi::class, 'id_presensi', 'id_presensi');
     }
 }

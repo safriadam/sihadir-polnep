@@ -28,7 +28,7 @@ class Logs extends Model
 
     // menentukan tipe data primary key
     protected $keyType = 'int';
-    
+
     // menentukan kolom kolom lain pada tabel (yang bukan primary key)
     protected $fillable = [
             'id_jadwal',
@@ -37,7 +37,7 @@ class Logs extends Model
             'tahun_akhir',
         ];
 
-        // menentukan relasi tabel 
+        // menentukan relasi tabel
 
         public function presensi ()
         {
@@ -55,7 +55,7 @@ class Logs extends Model
         }
 
         public function dosen ()
-        { 
+        {
             return  $this -> belongsTo(Dosen::class, 'id_dosen', 'id_dosen');
         }
 

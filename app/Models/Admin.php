@@ -33,12 +33,12 @@ class Admin extends Model
         'pwd',
         'no_hp',
     ];
-   
-    // menentukan relasi tabel 
+
+    // menentukan relasi tabel
     public function users()
     {
         return $this ->hasOne(User::class, 'user_id', 'id');
     }
-    
+
 
 }
