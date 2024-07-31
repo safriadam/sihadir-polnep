@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 // hubungkan model model yang diperlukan
 use app\Models\User;
 use app\Models\Dosen;
+use App\Models\Kompen_mahasiswa;
+use App\Models\Kelas;
+use App\Models\Presensi;
 
 class Mahasiswa extends Model
 {
@@ -51,5 +54,20 @@ class Mahasiswa extends Model
         public function dosen()
         {
             return $this->belongsTo(Dosen::class, 'id_dosen_PA', 'id_dosen');
+        }
+
+        public function kompen_mahasiswa()
+        {
+            return $this->hasOne(Kompen_mahasiswa::class,'id_presensi','id_presensi');
+        }
+
+        public function kelas()
+        {
+            return $this->hasMany(Kelas::class,'id_kelas','id_kelas');
+        }
+
+        public function presensi()
+        {
+            return $this->hansOne(Presensi::class,'id_mahasiswa','id_mahasiswa');
         }
 }
