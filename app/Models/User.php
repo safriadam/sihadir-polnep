@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 // hubungkan model model yang diperlukan
 use app\Models\Dosen;
 use app\Models\Mahasiswa;
+use app\Models\Admin;
 
 class User extends Model
 {
     use HasFactory;
-    
+
     // menghubungkan nama tabel dengan model
     protected $table = 'users';
 
@@ -24,7 +25,7 @@ class User extends Model
 
     // menentukan tipe data primary key
     protected $keyType = 'int';
-    
+
     // menentukan kolom kolom lain pada tabel (yang bukan primary key)
     protected $fillable = [
         'name',
@@ -34,7 +35,7 @@ class User extends Model
         'created_at',
     ];
 
-    // menentukan relasi tabel 
+    // menentukan relasi tabel
     public function dosen()
     {
         return $this->hasOne(Dosen::class, 'user_id', 'id');
@@ -43,5 +44,10 @@ class User extends Model
     public function mahasiswa()
     {
         return $this->hasOne(Mahasiswa::class, 'user_id', 'id');
+    }
+
+    public function admin()
+    {
+        return $this ->hasOne(Admin::class, 'user_id', 'id');
     }
 }
