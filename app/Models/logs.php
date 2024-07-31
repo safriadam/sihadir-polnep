@@ -58,8 +58,4 @@ class Logs extends Model
         {
             return  $this -> belongsTo(Dosen::class, 'id_dosen', 'id_dosen');
         }
-
-
-
-
 }

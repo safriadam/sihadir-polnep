@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Presensi;
 
-class Ket_mhs extends Model
+class Keterangan_mahasiswa extends Model
 {
     use HasFactory;
      

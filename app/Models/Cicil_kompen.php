@@ -33,9 +33,9 @@ class Cicil_kompen extends Model
         'status',
     ];
 
-    public function kompensasi()
+    public function kompen_mahasiswa()
     {
-        return $this->belongsTo(kompensasi::class, 'id_kompen' ,'id_kompen');
+        return $this->belongsTo(Kompen_mahasiswa::class, 'id_kompen' ,'id_kompen');
     }
 
     public function logs()
