@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- SIHADIR BACKEND --
 
 jalankan perintah ini
@@ -19,3 +20,6 @@ php artisan serve
 ```bash
 http://localhost:8000
 ```
+=======
+# sihadir-polnep
+>>>>>>> origin/tim-database-api
