@@ -11,9 +11,7 @@ use App\Models\Kaldik;
 class KaldikController extends Controller
 {
     public function dashboardKaldik()
-    {
-        
-                 
+    {          
         try {
             $kaldik = DB::table('kaldiks')
             ->where('tahun',Carbon::now()->format('Y'))->get();      
