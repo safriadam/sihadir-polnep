@@ -11,12 +11,9 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-<<<<<<< HEAD
-=======
     /**
      * The current password being used by the factory.
      */
->>>>>>> origin/tim-database-api
     protected static ?string $password;
 
     /**

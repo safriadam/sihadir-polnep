@@ -14,7 +14,6 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -22,8 +21,6 @@ return [
         'scheme' => 'https',
     ],
 
-=======
->>>>>>> origin/tim-database-api
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
@@ -34,8 +31,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-<<<<<<< HEAD
-=======
     'resend' => [
         'key' => env('RESEND_KEY'),
     ],
@@ -47,5 +42,4 @@ return [
         ],
     ],
 
->>>>>>> origin/tim-database-api
 ];
