@@ -15,7 +15,7 @@ use App\Models\Presensi;
 class Mahasiswa extends Model
 {
     use HasFactory;
-
+    
         // nonaktifkan timestamp karna di tabel tidak memakai kolom 'created_at' & 'updated_at'
         public $timestamps = false;
 
