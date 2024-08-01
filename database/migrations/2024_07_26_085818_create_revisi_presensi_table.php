@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('revisi_presensi', function (Blueprint $table) {
             $table->bigInteger('id_revisi_presensi')->autoIncrement();
             $table->bigInteger('id_presensi');
-            $table->integer('tanggal_revisi');
+            $table->date('tanggal_revisi');
             $table->enum('status',['diajukan','menunggu_verif','disetujui'])->nullable();
             $table->string('bukti_revisi');
             $table->date('created_at')->nullable();
