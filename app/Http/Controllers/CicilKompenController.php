@@ -12,7 +12,6 @@ class CicilKompenController extends Controller
 {
     public function DashboardCicil()
     {
-
         try {
             $cicil = Cicil_kompen::select('jenis_kompen', 'tgl_cicil', 'jlh_jam_konversi')->get();
             $totalJamKonversi = Cicil_kompen::sum('jlh_jam_konversi');

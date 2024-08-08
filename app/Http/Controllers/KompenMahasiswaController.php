@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Kompen_mahasiswa;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+
+use App\Models\Kompen_mahasiswa;
 
 class KompenMahasiswaController extends Controller
 {
-    public function DashboardKompen()
+    
+    public function Dashboard_Kompen()
     {
         try {
             // Mengambil data dari tabel kompen_mahasiswa
             $data = DB::table("kompen_mahasiswa")
-                ->join("matkul", "kompen_mahasiswa.Id_matkul", "=", "matkul.Id_matkul")
-                ->select("matkul.nama_matkul as Mata kuliah", "kompen_mahasiswa.jumlah_kompen", "kompen_mahasiswa.tgl_kompen")
+                ->join("matkul", "kompen_mahasiswa.id_matkul", "=", "matkul.id_matkul")
+                ->select("matkul.nama_matkul as Mata kuliah","kompen_mahasiswa.tgl_alpha", "kompen_mahasiswa.jumlah_kompen")
                 ->get();
 
             // Menghitung total kompen
@@ -35,8 +37,5 @@ class KompenMahasiswaController extends Controller
                 "error" => $th->getMessage(),
             ], $statusCode);
         }
-
-        
-    }
-    
+    } 
 }

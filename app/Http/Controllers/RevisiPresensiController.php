@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Revisi_presensi;
 
 class RevisiPresensiController extends Controller
 {
@@ -13,14 +14,14 @@ class RevisiPresensiController extends Controller
         try {
             // Fetch data from the Revisi_Presensi table with related data
             $revisi = DB::table('revisi_presensi')
-                ->join('mahasiswas', 'mahasiswas.nim', '=', 'mahasiswas.nim') // Correct the join condition
+                ->join('mahasiswa', 'mahasiswa.nim', '=', 'mahasiswa.nim') // Correct the join condition
                 ->join('matkul', 'matkul.id_matkul', '=', 'matkul.id_matkul') // Check if id_matkul exists
-                ->join('presensis', 'revisi_presensi.id_presensi', '=', 'presensis.id_presensi')
+                ->join('presensi', 'revisi_presensi.id_presensi', '=', 'presensi.id_presensi')
                 ->select(
-                    'mahasiswas.nim',
-                    'mahasiswas.nama as Nama_mahasiswa', // Ensure this column exists in mahasiswas table
+                    'mahasiswa.nim',
+                    'mahasiswa.nama as Nama_mahasiswa', // Ensure this column exists in mahasiswas table
                     'matkul.nama_matkul as Mata_kuliah',
-                    'presensis.status as keterangan'
+                    'presensi.status as keterangan'
                 )
                 ->get();
 
