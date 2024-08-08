@@ -30,5 +30,8 @@ class KompenMahasiswaController extends Controller
                 "error" => $th->getMessage(),
             ], $th->getCode());
         }
+
+        
     }
+    
 }
