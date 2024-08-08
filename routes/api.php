@@ -10,6 +10,4 @@ Route::get('/Dashboard-sp',[spController::class, 'Dashboardsp']);
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-
-// kompen
-Route::get('/Dashboard-kompen', [KompenMahasiswaController::class,'DashboardKompen']);
+Route::get('/Dashboard-kompen',[KompenMahasiswaController::class,'DashboardKompen']);
