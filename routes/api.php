@@ -10,4 +10,8 @@ Route::get('/Dashboard-sp',[spController::class, 'Dashboardsp']);
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::get('/Dashboard-kompen',[KompenMahasiswaController::class,'DashboardKompen']);
+//Cicil Kompen
+Route::get('/Dashboard-cicil',[CicilKompenController::class, 'DashboardCicil']);
+Route::post("/Tambah-cicil", [CicilKompenController::class, 'tambahCicilKompen']);
+Route::patch('/Update-cicil', [CicilKompenController::class, 'updateCicilKompen']);
+Route::delete('/Delete-cicil', [CicilKompenController::class, 'deleteCicilKompen']);
