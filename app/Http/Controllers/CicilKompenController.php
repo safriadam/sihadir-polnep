@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -50,22 +50,30 @@ class CicilKompenController extends Controller
             }
 
             try {
-                $cicil = new Cicil_kompen();
-                $cicil->id_kompen = $request->id_kompen;
-                $cicil->id_tahun_ajar = $request->id_tahun_ajar;
-                $cicil->id_mahasiswa = $request->id_mahasiswa;
-                $cicil->tgl_cicil = $request->tgl_cicil;
-                $cicil->jlh_jam_konversi = $request->jlh_jam_konversi;
-                $cicil->jenis_kompen = $request->jenis_kompen;
-                $cicil->status = $request->status;
-                $cicil->save();
+                // $cicil = new Cicil_kompen();
+                // $cicil->id_kompen = $request->id_kompen;
+                // $cicil->id_tahun_ajar = $request->id_tahun_ajar;
+                // $cicil->id_mahasiswa = $request->id_mahasiswa;
+                // $cicil->tgl_cicil = $request->tgl_cicil;
+                // $cicil->jlh_jam_konversi = $request->jlh_jam_konversi;
+                // $cicil->jenis_kompen = $request->jenis_kompen;
+                // $cicil->status = $request->status;
+                // $cicil->save();
             
                 // Buat entri Cicil Kompen baru
-            $cicil = Cicil_kompen::create($data);
+            $data = Cicil_kompen::create([
+                'id_kompen' => $request->id_kompen,
+                'id_tahun_ajar' => $request->id_tahun_ajar,
+                'id_mahasiswa' => $request->id_mahasiswa,
+                'tgl_cicil' => $request->tgl_cicil,
+                'jlh_jam_konversi' => $request->jlh_jam_konversi,
+                'jenis_kompen' => $request->jenis_kompen,
+                'status' => $request->status,
+            ]);
             return response()->json([
                 'status' => 201,
                 'message' => 'Data cicilan kompensasi berhasil ditambahkan',
-                'data' => $cicil
+                'data' => $data
             ], 201);
         } catch (\Throwable $th) {
             return response()->json([
@@ -77,7 +85,7 @@ class CicilKompenController extends Controller
 
 
        //update data Cicil Kompen
-       public function updateCicilKompen(Request $request)
+       public function updateCicilKompen(Request $request, $id)
        {
             // Validasi input
             $validator = Validator::make($request->all(), [
@@ -123,10 +131,10 @@ class CicilKompenController extends Controller
     }
 
         //Hapus data
-        public function deleteCicilKompen(Request $request)
+        public function deleteCicilKompen(Request $request, $id)
         {
             try {
-                $cicil = Cicil_kompen::where('id_cicil', $id_kls)->firstOrFail();
+                $cicil = Cicil_kompen::where('id_cicil', $id)->firstOrFail();
                 $cicil->delete();
 
                 return response()->json([

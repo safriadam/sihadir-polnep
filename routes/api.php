@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpController;
 use App\Http\Controllers\KompenMahasiswaController;
+use App\Http\Controllers\CicilKompenController;
 
 Route::get('/Dashboard-sp',[spController::class, 'Dashboardsp']); 
 // (Request $request) {
