@@ -50,7 +50,7 @@ class Kompen_mahasiswa extends Model
 
     public function matkul()
     {
-        return $this->hasOne(Matkul::class,'id_matkul','id_matkul');
+        return $this->belongsTo(Matkul::class,'id_matkul','id_matkul');
     }
 
     public function logs()

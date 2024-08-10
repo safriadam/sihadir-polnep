@@ -20,4 +20,6 @@ Route::delete('/Delete-cicil', [CicilKompenController::class, 'deleteCicilKompen
 
 Route::get('/Dashboard-Kompen',[KompenMahasiswaController::class,'Dashboard_Kompen']);
 
+Route::get('/Profil-Kompen', [KompenMahasiswaController::class,'Profil_Kompen']);
+
 Route::get('/Revisi-Presensi', [RevisiPresensiController::class, 'DashboardRevisiPresensi']);

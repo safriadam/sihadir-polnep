@@ -56,9 +56,14 @@ class Mahasiswa extends Model
             return $this->belongsTo(Dosen::class, 'id_dosen_PA', 'id_dosen');
         }
 
-        public function kompen_mahasiswa()
+        // public function kompen_mahasiswa()
+        // {
+        //     return $this->hasOne(Kompen_mahasiswa::class,'id_presensi','id_presensi');
+        // }
+
+        public function kompenMahasiswa()
         {
-            return $this->hasOne(Kompen_mahasiswa::class,'id_presensi','id_presensi');
+            return $this->hasMany(Kompen_mahasiswa::class, 'id_mahasiswa', 'id_mahasiswa');
         }
 
         public function kelas()

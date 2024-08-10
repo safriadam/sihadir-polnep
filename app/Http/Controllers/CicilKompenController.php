@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cicil_kompen;
+use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 
 class CicilKompenController extends Controller
 {
-    public function DashboardCicil()
+    public function DashboardCicil(Request $request)
     {
         try {
             $cicil = Cicil_kompen::select('jenis_kompen', 'tgl_cicil', 'jlh_jam_konversi')->get();
@@ -21,6 +22,19 @@ class CicilKompenController extends Controller
                 'TotalJamKonversi' => $totalJamKonversi
                 
             ], 200);
+
+        // $userId = $request->user()->id;
+        // $cicil = Cicil_kompen::select('jenis_kompen', 'tgl_cicil', 'jlh_jam_konversi')
+        // ->where('id_mahasiswa', $userId)
+        // ->get();
+
+        // return response()->json([
+        //     'status' => 200,
+        //     'CicilAll' => $cicil,
+        //     'TotalJamKonversi' => $totalJamKonversi
+            
+        // ], 200);
+        
         } catch (\Throwable $th) {
             return response()->json([
                 "error" => $th->getMessage()

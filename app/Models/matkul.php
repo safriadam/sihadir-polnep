@@ -45,4 +45,9 @@ class Matkul extends Model
      {
          return $this->hasOne(Berita_acara::class, 'id_jadwal', 'id_dosen');
      }
+
+     public function kompenMahasiswa()
+     {
+         return $this->hasMany(Kompen_mahasiswa::class, 'id_matkul');
+     }
  }
